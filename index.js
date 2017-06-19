@@ -5,8 +5,8 @@ var msgService = require('./msg_service.js');
 var app = express();
 
 // setup ports
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 4000;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var server_port = process.env.PORT || 5000;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 // server listens in on port
 var server = app.listen(server_port, server_ip_address, function () {
