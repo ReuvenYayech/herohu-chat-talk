@@ -5,12 +5,11 @@ var msgService = require('./msg_service.js');
 var app = express();
 
 // setup ports
-var server_port = process.env.PORT || 5000;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+app.set('port', (process.env.PORT || 5000));
 
 // server listens in on port
-var server = app.listen(server_port, server_ip_address, function () {
-	 console.log( "Listening on " + server_ip_address + ", server_port " + server_port );
+var server = app.listen(app.get('port'), function () {
+	console.log('Node app is running on port', app.get('port'));
 });
 
 // Static files
